@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2011-2012 Litecoin Developers
 // Copyright (c) 2013 Feathercoin Developers
+// Copyright (c) 2014 GoodwillCoin.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -295,14 +296,14 @@ void ThreadIRCSeed2(void* parg)
         }
         
         if (fTestNet) {
-            Send(hSocket, "JOIN #feathercoinTEST3\r");
-            Send(hSocket, "WHO #feathercoinTEST3\r");
+            Send(hSocket, "JOIN #goodwillcoinTEST3\r");
+            Send(hSocket, "WHO #goodwillcoinTEST3\r");
         } else {
-            // randomly join #feathercoin00-#feathercoin99
+            // randomly join #goodwillcoin00-#goodwillcoin99
             int channel_number = GetRandInt(100);
-            channel_number = 0; // Feathercoin: for now, just use one channel
-            Send(hSocket, strprintf("JOIN #feathercoin%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #feathercoin%02d\r", channel_number).c_str());
+            channel_number = 0; // Goodwillcoin: for now, just use one channel
+            Send(hSocket, strprintf("JOIN #goodwillcoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #goodwillcoin%02d\r", channel_number).c_str());
         }
 
         int64 nStart = GetTime();
